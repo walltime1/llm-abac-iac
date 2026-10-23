@@ -1,0 +1,36 @@
+# Evaluation batch: all 7 controlled fixtures x Qwen 3.5 27B
+# Usage: python batch_run.py --config batch_eval_fixtures.yml
+
+models:
+  - openrouter/qwen/qwen3.5-27b:alibaba
+  # OpenCode Go models (free, no API key needed):
+  # - opencode-go/glm-5.1
+  # - opencode-go/kimi-k2.6
+  # - opencode-go/mimo-v2.5-pro
+  # - opencode-go/qwen3.6-plus
+
+ansible_dirs:
+  - eval_fixtures/f1_minimal_twotier
+  - eval_fixtures/f2_threetier_segmented
+  - eval_fixtures/f3_privsep_service_accounts
+  - eval_fixtures/f4_patched_vs_vulnerable
+  - eval_fixtures/f5_chained_vulnerabilities
+  - eval_fixtures/f6_intent_vs_effective
+  - eval_fixtures/f7_negative_control
+
+runs: 3
+
+defaults:
+  interpreter: local
+  max_iterations: 25
+  max_tokens: 32000
+  reasoning: auto
+  retries: 5
+  trace: true
+  phoenix_project: rlm-eval-fixtures
+  no_cache: true
+  policy_goal: all
+  max_parallel: 3
+  phase_order: eager
+  # base_url: http://192.168.50.27:1234/v1  # OpenAI-compatible endpoint
+  # api_key: sk-...                          # or set via env var

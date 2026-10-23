@@ -1,0 +1,128 @@
+[
+  {
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f3_privsep_service_a_20260612_161143_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenrouterException - {\"error\":{\"message\":\"Missing Authentication header\",\"code\":401}}",
+    "elapsed": "34s"
+  },
+  {
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f4_patched_vs_vulner_20260612_161143_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenrouterException - {\"error\":{\"message\":\"Missing Authentication header\",\"code\":401}}",
+    "elapsed": "34s"
+  },
+  {
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f2_threetier_segment_20260612_161143_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenrouterException - {\"error\":{\"message\":\"Missing Authentication header\",\"code\":401}}",
+    "elapsed": "34s"
+  },
+  {
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f5_chained_vulnerabi_20260612_161143_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenrouterException - {\"error\":{\"message\":\"Missing Authentication header\",\"code\":401}}",
+    "elapsed": "35s"
+  },
+  {
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f1_minimal_twotier_20260612_161143_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenrouterException - {\"error\":{\"message\":\"Missing Authentication header\",\"code\":401}}",
+    "elapsed": "35s"
+  },
+  {
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f6_intent_vs_effecti_20260612_161217_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenrouterException - {\"error\":{\"message\":\"Missing Authentication header\",\"code\":401}}",
+    "elapsed": "31s"
+  },
+  {
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f7_negative_control_20260612_161217_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenrouterException - {\"error\":{\"message\":\"Missing Authentication header\",\"code\":401}}",
+    "elapsed": "31s"
+  },
+  {
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f1_minimal_twotier_20260612_161217_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenAIException - Invalid API key.",
+    "elapsed": "35s"
+  },
+  {
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f2_threetier_segment_20260612_161218_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenAIException - Invalid API key.",
+    "elapsed": "35s"
+  },
+  {
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f3_privsep_service_a_20260612_161218_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenAIException - Invalid API key.",
+    "elapsed": "35s"
+  },
+  {
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f4_patched_vs_vulner_20260612_161248_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenAIException - Invalid API key.",
+    "elapsed": "35s"
+  },
+  {
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f5_chained_vulnerabi_20260612_161248_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenAIException - Invalid API key.",
+    "elapsed": "35s"
+  },
+  {
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f6_intent_vs_effecti_20260612_161252_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenAIException - Invalid API key.",
+    "elapsed": "35s"
+  },
+  {
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f7_negative_control_20260612_161253_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 1,
+    "status": "error",
+    "error": "litellm.AuthenticationError: AuthenticationError: OpenAIException - Invalid API key.",
+    "elapsed": "35s"
+  }
+]

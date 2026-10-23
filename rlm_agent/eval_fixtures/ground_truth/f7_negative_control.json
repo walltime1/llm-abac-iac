@@ -1,0 +1,20 @@
+{
+  "fixture": "f7_negative_control",
+  "description": "Specificity check: fully patched, zero CVEs should be admitted, zero kill chains. Any SAT for _attacker = confabulation.",
+  "intent_queries": [
+    {"user": "admin", "action": "sudo:execute", "host_group": "webservers", "expected": "sat",
+     "reason": "admin has sudo group + secret clearance"},
+    {"user": "appuser", "action": "sudo:execute", "host_group": "webservers", "expected": "unsat",
+     "reason": "appuser lacks sudo group"},
+    {"user": "_attacker", "action": "db:login", "host_group": "dbservers", "service": "postgresql", "expected": "unsat",
+     "reason": "no external path to DB"}
+  ],
+  "cve_queries": [
+    {"user": "_attacker", "action": "db:login", "host_group": "dbservers", "service": "postgresql", "expected": "unsat",
+     "reason": "all versions patched — nginx 1.27.0, OpenSSH 9.9p1, PostgreSQL 16.4 — no CVEs admitted, no become edges",
+     "expected_cves": [],
+     "chain_hops": 0}
+  ],
+  "expected_admitted_cves": 0,
+  "expected_kill_chains": 0
+}

@@ -1,0 +1,33 @@
+# Qwen 3.5-27B (OpenRouter/Alibaba) × 7 fixtures × 3 runs = 21 runs
+# Budget estimate:
+#   ~12 iter/run × ~10K input + ~3K output per iter
+#   Alibaba: $0.195/M in, $1.56/M out → ~$0.08/run → ~$1.68 total
+#   AtlasCloud: $0.27/M in, $2.16/M out, $0.27/M cache → ~$0.06/run w/cache → ~$1.26 total
+# Old runs (Apr 23) hit 25-step limit at 32K tokens — not reusable
+
+models:
+  - openrouter/qwen/qwen3.5-27b:alibaba
+
+ansible_dirs:
+  - eval_fixtures/f1_minimal_twotier
+  - eval_fixtures/f2_threetier_segmented
+  - eval_fixtures/f3_privsep_service_accounts
+  - eval_fixtures/f4_patched_vs_vulnerable
+  - eval_fixtures/f5_chained_vulnerabilities
+  - eval_fixtures/f6_intent_vs_effective
+  - eval_fixtures/f7_negative_control
+
+runs: 3
+
+defaults:
+  interpreter: local
+  max_iterations: 35
+  max_tokens: 64000
+  reasoning: auto
+  retries: 5
+  trace: true
+  phoenix_project: eval-qwen3.5-27b
+  no_cache: true
+  policy_goal: all
+  max_parallel: 5
+  phase_order: eager

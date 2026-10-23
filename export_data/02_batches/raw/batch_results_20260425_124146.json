@@ -1,0 +1,233 @@
+[
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f1_minimal_twotier_20260425_122202_r1.abac.md",
+    "trajectory_steps": 9,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f1_minimal_twotier_20260425_122202_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "190s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f1_minimal_twotier_20260425_122202_r3.abac.md",
+    "trajectory_steps": 9,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f1_minimal_twotier_20260425_122202_r3.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "247s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f2_threetier_segment_20260425_122202_r2.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f2_threetier_segment_20260425_122202_r2.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "275s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f1_minimal_twotier_20260425_122202_r2.abac.md",
+    "trajectory_steps": 14,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f1_minimal_twotier_20260425_122202_r2.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "279s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f2_threetier_segment_20260425_122202_r1.abac.md",
+    "trajectory_steps": 11,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f2_threetier_segment_20260425_122202_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "288s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f2_threetier_segment_20260425_122512_r3.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f2_threetier_segment_20260425_122512_r3.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "221s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f3_privsep_service_a_20260425_122637_r2.abac.md",
+    "trajectory_steps": 14,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f3_privsep_service_a_20260425_122637_r2.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "221s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f4_patched_vs_vulner_20260425_122650_r1.abac.md",
+    "trajectory_steps": 11,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f4_patched_vs_vulner_20260425_122650_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "223s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f3_privsep_service_a_20260425_122641_r3.abac.md",
+    "trajectory_steps": 10,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f3_privsep_service_a_20260425_122641_r3.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "236s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f3_privsep_service_a_20260425_122609_r1.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f3_privsep_service_a_20260425_122609_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "292s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f4_patched_vs_vulner_20260425_123018_r3.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f4_patched_vs_vulner_20260425_123018_r3.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "203s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f4_patched_vs_vulner_20260425_122853_r2.abac.md",
+    "trajectory_steps": 18,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f4_patched_vs_vulner_20260425_122853_r2.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "305s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f5_chained_vulnerabi_20260425_123038_r2.abac.md",
+    "trajectory_steps": 14,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f5_chained_vulnerabi_20260425_123038_r2.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "212s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f5_chained_vulnerabi_20260425_123101_r3.abac.md",
+    "trajectory_steps": 14,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f5_chained_vulnerabi_20260425_123101_r3.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "242s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f5_chained_vulnerabi_20260425_123033_r1.abac.md",
+    "trajectory_steps": 11,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f5_chained_vulnerabi_20260425_123033_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "270s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f6_intent_vs_effecti_20260425_123358_r2.abac.md",
+    "trajectory_steps": 11,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f6_intent_vs_effecti_20260425_123358_r2.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "184s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f6_intent_vs_effecti_20260425_123409_r3.abac.md",
+    "trajectory_steps": 8,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f6_intent_vs_effecti_20260425_123409_r3.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "226s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f7_negative_control_20260425_123503_r1.abac.md",
+    "trajectory_steps": 11,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f7_negative_control_20260425_123503_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "213s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f6_intent_vs_effecti_20260425_123341_r1.abac.md",
+    "trajectory_steps": 12,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f6_intent_vs_effecti_20260425_123341_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "312s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f7_negative_control_20260425_123702_r3.abac.md",
+    "trajectory_steps": 8,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f7_negative_control_20260425_123702_r3.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "136s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f7_negative_control_20260425_123503_r2.abac.md",
+    "trajectory_steps": 14,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_f7_negative_control_20260425_123503_r2.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "402s"
+  }
+]

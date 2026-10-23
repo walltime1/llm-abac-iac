@@ -1,0 +1,26 @@
+---
+org: segcorp
+compliance_tier: pci
+default_log_retention_days: 365
+
+# Pinned software versions.
+nginx_version: "1.20.0-1~focal"
+ssh_version: "1:9.1p1-1ubuntu1"
+postgres_version: "16.2-1.pgdg22.04+1"
+
+users:
+  - name: admin
+    uid: 1001
+    groups: [sudo]
+    department: operations
+    clearance: secret
+  - name: developer
+    uid: 1002
+    groups: [developers]
+    department: engineering
+    clearance: confidential
+  - name: dba
+    uid: 1003
+    groups: [dba]
+    department: data
+    clearance: secret

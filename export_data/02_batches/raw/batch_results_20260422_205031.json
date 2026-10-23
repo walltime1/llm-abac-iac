@@ -1,0 +1,35 @@
+[
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_lamp_haproxy_20260422_202323_r3.abac.md",
+    "trajectory_steps": 35,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_lamp_haproxy_20260422_202323_r3.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "ansible_examples/lamp_haproxy",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "622s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_lamp_haproxy_20260422_202323_r1.abac.md",
+    "trajectory_steps": 35,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_lamp_haproxy_20260422_202323_r1.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "ansible_examples/lamp_haproxy",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "849s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_lamp_haproxy_20260422_202323_r2.abac.md",
+    "trajectory_steps": 35,
+    "output_file": "reports/batch_openrouter_qwen_qwen3.5-27b_alibaba_lamp_haproxy_20260422_202323_r2.abac.md",
+    "model": "openrouter/qwen/qwen3.5-27b:alibaba",
+    "ansible_dir": "ansible_examples/lamp_haproxy",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "1627s"
+  }
+]

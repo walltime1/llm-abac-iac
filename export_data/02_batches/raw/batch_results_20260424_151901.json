@@ -1,0 +1,233 @@
+[
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f1_minimal_twotier_20260424_132005_r2.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f1_minimal_twotier_20260424_132005_r2.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "719s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f3_privsep_service_a_20260424_132005_r1.abac.md",
+    "trajectory_steps": 20,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f3_privsep_service_a_20260424_132005_r1.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "983s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f1_minimal_twotier_20260424_132005_r1.abac.md",
+    "trajectory_steps": 12,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f1_minimal_twotier_20260424_132005_r1.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "1555s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f2_threetier_segment_20260424_132005_r1.abac.md",
+    "trajectory_steps": 21,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f2_threetier_segment_20260424_132005_r1.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "1617s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f2_threetier_segment_20260424_132005_r3.abac.md",
+    "trajectory_steps": 16,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f2_threetier_segment_20260424_132005_r3.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "1777s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f1_minimal_twotier_20260424_132005_r3.abac.md",
+    "trajectory_steps": 12,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f1_minimal_twotier_20260424_132005_r3.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "2026s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f3_privsep_service_a_20260424_133204_r2.abac.md",
+    "trajectory_steps": 14,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f3_privsep_service_a_20260424_133204_r2.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "1496s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f4_patched_vs_vulner_20260424_134600_r1.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f4_patched_vs_vulner_20260424_134600_r1.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "1312s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f4_patched_vs_vulner_20260424_134702_r2.abac.md",
+    "trajectory_steps": 18,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f4_patched_vs_vulner_20260424_134702_r2.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "1552s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f5_chained_vulnerabi_20260424_135352_r1.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f5_chained_vulnerabi_20260424_135352_r1.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "1248s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f3_privsep_service_a_20260424_133628_r3.abac.md",
+    "trajectory_steps": 15,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f3_privsep_service_a_20260424_133628_r3.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "3086s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f5_chained_vulnerabi_20260424_140752_r3.abac.md",
+    "trajectory_steps": 10,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f5_chained_vulnerabi_20260424_140752_r3.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "1328s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f6_intent_vs_effecti_20260424_141254_r1.abac.md",
+    "trajectory_steps": 14,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f6_intent_vs_effecti_20260424_141254_r1.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "1258s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f4_patched_vs_vulner_20260424_134943_r3.abac.md",
+    "trajectory_steps": 11,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f4_patched_vs_vulner_20260424_134943_r3.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "2725s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f2_threetier_segment_20260424_132005_r2.abac.md",
+    "trajectory_steps": 17,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f2_threetier_segment_20260424_132005_r2.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "4673s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f6_intent_vs_effecti_20260424_141439_r2.abac.md",
+    "trajectory_steps": 18,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f6_intent_vs_effecti_20260424_141439_r2.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "1770s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f7_negative_control_20260424_143000_r1.abac.md",
+    "trajectory_steps": 9,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f7_negative_control_20260424_143000_r1.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "915s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f7_negative_control_20260424_143352_r2.abac.md",
+    "trajectory_steps": 10,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f7_negative_control_20260424_143352_r2.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "1203s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f7_negative_control_20260424_143508_r3.abac.md",
+    "trajectory_steps": 9,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f7_negative_control_20260424_143508_r3.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "1262s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f5_chained_vulnerabi_20260424_135700_r2.abac.md",
+    "trajectory_steps": 14,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f5_chained_vulnerabi_20260424_135700_r2.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "4423s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_glm-5.1_f6_intent_vs_effecti_20260424_142755_r3.abac.md",
+    "trajectory_steps": 18,
+    "output_file": "reports/batch_opencode-go_glm-5.1_f6_intent_vs_effecti_20260424_142755_r3.abac.md",
+    "model": "opencode-go/glm-5.1",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "3066s"
+  }
+]

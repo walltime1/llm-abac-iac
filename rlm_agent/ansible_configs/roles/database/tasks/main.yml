@@ -1,0 +1,51 @@
+---
+- name: Install PostgreSQL
+  ansible.builtin.apt:
+    name: "postgresql-{{ postgres_major_version }}={{ postgres_version }}"
+    state: present
+    update_cache: true
+
+- name: Ensure postgres data dir
+  ansible.builtin.file:
+    path: "{{ data_dir }}"
+    owner: postgres
+    group: postgres
+    mode: "0700"
+    state: directory
+
+- name: Create DB role per user
+  community.postgresql.postgresql_user:
+    name: "{{ item.name }}"
+    role_attr_flags: "LOGIN,{{ 'SUPERUSER' if 'dba' in item.groups else 'NOSUPERUSER' }}"
+    password: "{{ vault_pg_passwords[item.name] | default(omit) }}"
+  loop: "{{ users }}"
+  when: "'dba' in item.groups or 'developers' in item.groups"
+
+- name: Grant read-only on app schema to auditors
+  community.postgresql.postgresql_privs:
+    db: appdb
+    role: "{{ item.name }}"
+    type: schema
+    objs: app
+    privs: USAGE
+  loop: "{{ users }}"
+  when: "'auditors' in item.groups and item.clearance == 'secret'"
+
+- name: Grant app read/write to developers
+  community.postgresql.postgresql_privs:
+    db: appdb
+    role: "{{ item.name }}"
+    type: table
+    schema: app
+    objs: ALL_IN_SCHEMA
+    privs: SELECT,INSERT,UPDATE
+  loop: "{{ users }}"
+  when: "'developers' in item.groups"
+
+- name: Allow postgres only from webservers
+  ansible.builtin.lineinfile:
+    path: /etc/postgresql/pg_hba.conf
+    line: "host appdb all {{ item }} scram-sha-256"
+  loop:
+    - 10.0.1.11/32
+    - 10.0.1.12/32

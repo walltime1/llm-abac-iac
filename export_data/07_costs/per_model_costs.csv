@@ -1,0 +1,5 @@
+model,canonical_model,cost_per_run_usd,total_cost_usd,avg_steps,avg_time_minutes
+Qwen 3.6-plus,opencode-go/qwen3.6-plus,0.15,3.11,11.1,8.0
+GLM-5.1,opencode-go/glm-5.1,0.4,8.41,14.1,32.0
+Kimi K2.6,opencode-go/kimi-k2.6,0.23,4.9,12.6,41.0
+MiniMax M2.7,opencode-go/minimax-m2.7,0.07,1.53,10.7,15.0

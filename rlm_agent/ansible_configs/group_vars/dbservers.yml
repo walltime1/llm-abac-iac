@@ -1,0 +1,5 @@
+---
+postgres_port: 5432
+data_dir: /var/lib/postgresql/data
+allowed_db_clients: webservers
+db_admin_groups: [dba]

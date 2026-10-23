@@ -1,0 +1,4 @@
+---
+redis_port: 6379
+redis_allow_from:
+  - 10.0.1.0/24

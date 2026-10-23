@@ -1,0 +1,29 @@
+# GLM-5.1 × 7 fixtures × 3 runs = 21 runs
+# Budget: ~$0.25/run × 21 = ~$5.25
+
+models:
+  - opencode-go/glm-5.1
+
+ansible_dirs:
+  - eval_fixtures/f1_minimal_twotier
+  - eval_fixtures/f2_threetier_segmented
+  - eval_fixtures/f3_privsep_service_accounts
+  - eval_fixtures/f4_patched_vs_vulnerable
+  - eval_fixtures/f5_chained_vulnerabilities
+  - eval_fixtures/f6_intent_vs_effective
+  - eval_fixtures/f7_negative_control
+
+runs: 3
+
+defaults:
+  interpreter: local
+  max_iterations: 25
+  max_tokens: 64000
+  reasoning: auto
+  retries: 5
+  trace: true
+  phoenix_project: eval-glm-5.1
+  no_cache: true
+  policy_goal: all
+  max_parallel: 7
+  phase_order: eager

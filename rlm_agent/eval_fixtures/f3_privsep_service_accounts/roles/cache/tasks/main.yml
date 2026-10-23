@@ -1,0 +1,26 @@
+---
+- name: Install Redis
+  ansible.builtin.apt:
+    name: "redis-server={{ redis_version }}"
+    state: present
+    update_cache: true
+
+- name: Ensure redis runs as redis user
+  ansible.builtin.user:
+    name: redis
+    shell: /usr/sbin/nologin
+    system: true
+
+- name: Bind redis to internal interface only
+  ansible.builtin.lineinfile:
+    path: /etc/redis/redis.conf
+    regexp: '^bind'
+    line: "bind 10.0.2.20"
+
+- name: Firewall — allow redis from webservers only
+  ansible.posix.firewalld:
+    source: "{{ item }}"
+    port: "{{ redis_port }}/tcp"
+    permanent: true
+    state: enabled
+  loop: "{{ redis_allow_from }}"

@@ -1,0 +1,25 @@
+# Phase-ordering A/B: EAGER (CVEs before rules)
+# Usage: python batch_run.py --config batch_ab_eager.yml
+
+models:
+  - opencode-go/glm-5.1
+  - opencode-go/qwen3.5-plus
+  - opencode-go/mimo-v2.5-pro
+
+ansible_dirs:
+  - eval_fixtures/f6_intent_vs_effective
+
+runs: 3
+
+defaults:
+  interpreter: local
+  max_iterations: 25
+  max_tokens: 64000
+  reasoning: auto
+  retries: 5
+  trace: true
+  phoenix_project: rlm-ab-phase-order
+  no_cache: true
+  policy_goal: all
+  max_parallel: 3
+  phase_order: eager

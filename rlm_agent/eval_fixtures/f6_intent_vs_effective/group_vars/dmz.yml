@@ -1,0 +1,5 @@
+---
+http_port: 443
+allowed_ssh_groups: [sudo]
+firewall_allow_from:
+  - 0.0.0.0/0    # internet-facing

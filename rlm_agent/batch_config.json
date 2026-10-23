@@ -1,0 +1,20 @@
+{
+    "models": [
+        "openrouter/qwen/qwen3.5-27b:alibaba"
+    ],
+    "ansible_dirs": [
+        "ansible_examples/lamp_haproxy"
+    ],
+    "runs": 3,
+    "defaults": {
+        "interpreter": "local",
+        "max_iterations": 35,
+        "max_tokens": 16000,
+        "reasoning": "auto",
+        "retries": 5,
+        "trace": true,
+        "no_cache": true,
+        "policy_goal": "all",
+        "max_parallel": 3
+    }
+}

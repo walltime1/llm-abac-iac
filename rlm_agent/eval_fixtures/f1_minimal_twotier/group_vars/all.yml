@@ -1,0 +1,21 @@
+---
+org: labcorp
+compliance_tier: soc2
+default_log_retention_days: 90
+
+# Pinned software versions.
+httpd_version: "2.4.49-1"
+ssh_version: "1:9.6p1-3ubuntu1"
+postgres_version: "16.2-1.pgdg22.04+1"
+
+users:
+  - name: admin
+    uid: 1001
+    groups: [sudo]
+    department: operations
+    clearance: secret
+  - name: appuser
+    uid: 1002
+    groups: [developers]
+    department: engineering
+    clearance: confidential

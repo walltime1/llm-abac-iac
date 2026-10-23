@@ -1,0 +1,18 @@
+{
+  "fixture": "f1_minimal_twotier",
+  "description": "Smoke test: two-tier web+db, Apache 2.4.49 (CVE-2021-41773 RCE), one-hop kill chain",
+  "intent_queries": [
+    {"user": "admin", "action": "sudo:execute", "host_group": "webservers", "expected": "sat",
+     "reason": "admin has sudo group + secret clearance"},
+    {"user": "appuser", "action": "sudo:execute", "host_group": "webservers", "expected": "unsat",
+     "reason": "appuser lacks sudo group"},
+    {"user": "_attacker", "action": "db:login", "host_group": "dbservers", "service": "postgresql", "expected": "unsat",
+     "reason": "no external path to DB — iptables blocks, no CVE edges in intent mode"}
+  ],
+  "cve_queries": [
+    {"user": "_attacker", "action": "db:login", "host_group": "dbservers", "service": "postgresql", "expected": "sat",
+     "reason": "CVE-2021-41773 on httpd → become _host_webservers → can_reach dbservers:postgresql via intended network rule",
+     "expected_cve": "CVE-2021-41773",
+     "chain_hops": 1}
+  ]
+}

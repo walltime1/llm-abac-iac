@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "LLM-assisted ABAC mining from Ansible IaC: code and raw results"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Osinnii
+    given-names: Maksym
+year: 2026
+license: MIT
+license-url: https://opensource.org/licenses/MIT

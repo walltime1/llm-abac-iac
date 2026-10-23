@@ -1,0 +1,25 @@
+---
+- name: Install nginx (legacy)
+  ansible.builtin.apt:
+    name: "nginx={{ nginx_version }}"
+    state: present
+    update_cache: true
+
+- name: Install OpenSSH server
+  ansible.builtin.apt:
+    name: "openssh-server={{ ssh_version }}"
+    state: present
+
+- name: Firewall — allow HTTPS from internet
+  ansible.posix.firewalld:
+    source: "{{ item }}"
+    port: "{{ http_port }}/tcp"
+    permanent: true
+    state: enabled
+  loop: "{{ firewall_allow_from }}"
+
+- name: Restrict SSH to sudo group
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^AllowGroups'
+    line: "AllowGroups {{ allowed_ssh_groups | join(' ') }}"

@@ -1,0 +1,6 @@
+---
+nginx_version: "1.20.0-1~focal"
+http_port: 443
+allowed_ssh_groups: [sudo]
+firewall_allow_from:
+  - 0.0.0.0/0

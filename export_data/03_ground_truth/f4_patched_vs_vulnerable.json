@@ -1,0 +1,16 @@
+{
+  "fixture": "f4_patched_vs_vulnerable",
+  "description": "Triage precision: CVE-2021-23017 should be admitted only against webservers_legacy (nginx 1.20.0), not webservers_patched (nginx 1.24.0)",
+  "intent_queries": [
+    {"user": "_attacker", "action": "network:connect", "host_group": "dbservers", "service": "postgresql", "expected": "unsat"}
+  ],
+  "cve_queries": [
+    {"user": "_attacker", "action": "network:connect", "host_group": "dbservers", "service": "postgresql", "expected": "sat",
+     "expected_cves": ["CVE-2021-23017"],
+     "chain": "CVE-2021-23017 admitted only on webservers_legacy (1.20.0), not webservers_patched (1.24.0) → become _host_webservers_legacy → can_reach dbservers:postgresql",
+     "precision_check": {
+       "should_admit": {"host_group": "webservers_legacy", "package": "nginx", "version": "1.20.0"},
+       "should_reject": {"host_group": "webservers_patched", "package": "nginx", "version": "1.24.0"}
+     }}
+  ]
+}

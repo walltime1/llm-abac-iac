@@ -1,0 +1,28 @@
+fixture,query_kind,query_index,user,action,host_group,service,expected,reason,expected_cves,chain_hops
+f1_minimal_twotier,intent,0,admin,sudo:execute,webservers,,sat,admin has sudo group + secret clearance,,
+f1_minimal_twotier,intent,1,appuser,sudo:execute,webservers,,unsat,appuser lacks sudo group,,
+f1_minimal_twotier,intent,2,_attacker,db:login,dbservers,postgresql,unsat,"no external path to DB — iptables blocks, no CVE edges in intent mode",,
+f1_minimal_twotier,cve,0,_attacker,db:login,dbservers,postgresql,sat,CVE-2021-41773 on httpd → become _host_webservers → can_reach dbservers:postgresql via intended network rule,,1
+f2_threetier_segmented,intent,0,admin,sudo:execute,dmz,,sat,,,
+f2_threetier_segmented,intent,1,developer,sudo:execute,dmz,,unsat,,,
+f2_threetier_segmented,intent,2,dba,db:login:superuser,dbservers,postgresql,sat,,,
+f2_threetier_segmented,intent,3,_attacker,db:login,dbservers,postgresql,unsat,,,
+f2_threetier_segmented,cve,0,_attacker,db:login,dbservers,postgresql,sat,,CVE-2021-23017;CVE-2024-6387,2
+f3_privsep_service_accounts,intent,0,admin,ssh:login,webservers,,sat,,,
+f3_privsep_service_accounts,intent,1,_attacker,network:connect,dbservers,postgresql,unsat,,,
+f3_privsep_service_accounts,cve,0,_attacker,network:connect,dbservers,postgresql,sat,,CVE-2021-23017,1
+f4_patched_vs_vulnerable,intent,0,_attacker,network:connect,dbservers,postgresql,unsat,,,
+f4_patched_vs_vulnerable,cve,0,_attacker,network:connect,dbservers,postgresql,sat,,CVE-2021-23017,
+f5_chained_vulnerabilities,intent,0,admin,sudo:execute,bastion,,sat,,,
+f5_chained_vulnerabilities,intent,1,dba,db:login:superuser,dbservers,postgresql,sat,,,
+f5_chained_vulnerabilities,intent,2,_attacker,db:login:superuser,dbservers,postgresql,unsat,,,
+f5_chained_vulnerabilities,cve,0,_attacker,db:login:superuser,dbservers,postgresql,sat,,CVE-2023-38408;CVE-2021-41773;CVE-2021-44228;CVE-2013-1903,4
+f6_intent_vs_effective,intent,0,admin,sudo:execute,dmz,,sat,admin has sudo group + secret clearance,,
+f6_intent_vs_effective,intent,1,developer,sudo:execute,dmz,,unsat,developer lacks sudo group,,
+f6_intent_vs_effective,intent,2,dba,db:login:superuser,dbservers,postgresql,sat,dba has dba group → SUPERUSER role,,
+f6_intent_vs_effective,intent,3,_attacker,db:login,dbservers,postgresql,unsat,no external path to DB — three zone boundaries block direct access,,
+f6_intent_vs_effective,cve,0,_attacker,db:login,dbservers,postgresql,sat,CVE-2021-23017 on nginx (DMZ) + CVE-2023-38408 on sshd (appservers) → two-hop chain to DB,CVE-2021-23017;CVE-2023-38408,2
+f7_negative_control,intent,0,admin,sudo:execute,webservers,,sat,admin has sudo group + secret clearance,,
+f7_negative_control,intent,1,appuser,sudo:execute,webservers,,unsat,appuser lacks sudo group,,
+f7_negative_control,intent,2,_attacker,db:login,dbservers,postgresql,unsat,no external path to DB,,
+f7_negative_control,cve,0,_attacker,db:login,dbservers,postgresql,unsat,"all versions patched — nginx 1.27.0, OpenSSH 9.9p1, PostgreSQL 16.4 — no CVEs admitted, no become edges",,0

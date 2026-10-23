@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "abac-ir-v1",
+  "title": "ABAC Canonical IR",
+  "description": "Schema for the intermediate representation consumed by abac_encoder.py. Produced by abac_poc.py's post-processor.",
+  "type": "object",
+  "required": ["attributes", "rules"],
+  "properties": {
+    "attributes": { "$ref": "#/$defs/attributes" },
+    "rules": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/rule" }
+    },
+    "vulnerabilities": {}
+  },
+  "$defs": {
+    "attributes": {
+      "type": "object",
+      "oneOf": [
+        { "$ref": "#/$defs/flat_attributes" },
+        { "$ref": "#/$defs/catalog_attributes" }
+      ]
+    },
+    "flat_attributes": {
+      "type": "object",
+      "required": ["subjects", "resources", "environment"],
+      "properties": {
+        "subjects": {
+          "type": "object",
+          "required": ["users", "groups"],
+          "properties": {
+            "users": { "type": "array", "items": { "$ref": "#/$defs/user_record" }, "minItems": 1 },
+            "groups": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+            "clearance_levels": { "type": "array", "items": { "type": "string" } },
+            "departments": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "resources": {
+          "type": "object",
+          "required": ["hosts"],
+          "properties": {
+            "hosts": { "type": "array", "items": { "$ref": "#/$defs/host_record" }, "minItems": 1 },
+            "services": { "type": "array", "items": { "$ref": "#/$defs/service_record" } },
+            "paths": { "type": "array", "items": { "$ref": "#/$defs/path_record" } },
+            "networks": { "type": "array" }
+          }
+        },
+        "environment": { "$ref": "#/$defs/environment_record" }
+      }
+    },
+    "catalog_attributes": {
+      "description": "Opus dual-layer: schema (subject/resource/environment) + catalog with instance records",
+      "type": "object",
+      "required": ["catalog"],
+      "properties": {
+        "subject": { "type": "object" },
+        "resource": { "type": "object" },
+        "environment": { "type": "object" },
+        "catalog": {
+          "type": "object",
+          "required": ["users", "groups", "hosts"],
+          "properties": {
+            "users": { "type": "array", "items": { "$ref": "#/$defs/user_record" }, "minItems": 1 },
+            "groups": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+            "hosts": { "type": "array", "items": { "$ref": "#/$defs/host_record" }, "minItems": 1 },
+            "services": { "type": "array", "items": { "$ref": "#/$defs/service_record" } },
+            "paths": { "type": "array", "items": { "$ref": "#/$defs/path_record" } },
+            "clearance_levels": { "type": "array", "items": { "type": "string" } },
+            "departments": { "type": "array", "items": { "type": "string" } },
+            "networks": { "type": "array" }
+          }
+        }
+      }
+    },
+    "user_record": {
+      "type": "object",
+      "required": ["name", "groups"],
+      "properties": {
+        "name": { "type": "string" },
+        "uid": { "type": "integer" },
+        "groups": { "type": "array", "items": { "type": "string" } },
+        "department": { "type": ["string", "null"] },
+        "clearance": { "type": ["string", "null"] },
+        "source": { "type": "string" }
+      }
+    },
+    "host_record": {
+      "type": "object",
+      "required": ["hostname", "inventory_group"],
+      "properties": {
+        "hostname": { "type": "string" },
+        "ip": { "type": "string" },
+        "role": { "type": ["string", "null"] },
+        "zone": { "type": "string" },
+        "inventory_group": { "type": "string" }
+      }
+    },
+    "service_record": {
+      "type": "object",
+      "required": ["name", "port"],
+      "properties": {
+        "name": { "type": "string" },
+        "port": { "type": "integer" },
+        "protocol": { "type": "string" },
+        "host_group": { "type": "string" }
+      }
+    },
+    "path_record": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": { "type": "string" },
+        "owner": { "type": "string" },
+        "group": { "type": "string" },
+        "mode": { "type": "string", "pattern": "^[0-7]{3,4}$" }
+      }
+    },
+    "environment_record": {
+      "type": "object",
+      "properties": {
+        "org": {},
+        "environment": {},
+        "compliance_tier": {}
+      }
+    },
+    "condition_value": {
+      "type": "object",
+      "oneOf": [
+        { "required": ["equals"], "properties": { "equals": {} } },
+        { "required": ["in"], "properties": { "in": { "type": "array" } } },
+        { "required": ["any_of"], "properties": { "any_of": { "type": "array" } } },
+        { "required": ["all_of"], "properties": { "all_of": { "type": "array" } } }
+      ]
+    },
+    "condition_object": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/condition_value" }
+    },
+    "canonical_action": {
+      "type": "string",
+      "enum": [
+        "ssh:login", "sudo:execute",
+        "db:login", "db:login:superuser", "db:schema:usage", "db:table:readwrite",
+        "network:connect",
+        "filesystem:read", "filesystem:write", "filesystem:execute",
+        "user:create",
+        "*"
+      ]
+    },
+    "rule": {
+      "type": "object",
+      "required": ["id", "subject_condition", "resource_condition", "action", "effect"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^rule-\\d{3}$" },
+        "subject_condition": { "$ref": "#/$defs/condition_object" },
+        "resource_condition": { "$ref": "#/$defs/condition_object" },
+        "environment_condition": { "$ref": "#/$defs/condition_object" },
+        "action": { "$ref": "#/$defs/canonical_action" },
+        "effect": { "type": "string", "enum": ["permit", "deny"] },
+        "source": {
+          "type": "object",
+          "properties": {
+            "file": { "type": "string" },
+            "task": { "type": "string" },
+            "lines": {}
+          }
+        },
+        "obligations": { "type": "array" },
+        "nopassword": { "type": "boolean" }
+      }
+    }
+  }
+}

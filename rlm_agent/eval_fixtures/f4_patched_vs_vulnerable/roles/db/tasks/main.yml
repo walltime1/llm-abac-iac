@@ -1,0 +1,20 @@
+---
+- name: Install PostgreSQL
+  ansible.builtin.apt:
+    name: "postgresql-16={{ postgres_version }}"
+    state: present
+    update_cache: true
+
+- name: Ensure postgres data dir
+  ansible.builtin.file:
+    path: "{{ data_dir }}"
+    owner: postgres
+    group: postgres
+    mode: "0700"
+    state: directory
+
+- name: Allow postgres only from web subnet
+  ansible.builtin.lineinfile:
+    path: /etc/postgresql/pg_hba.conf
+    line: "host all all {{ item }} scram-sha-256"
+  loop: "{{ db_allow_from }}"

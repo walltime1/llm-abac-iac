@@ -1,0 +1,15 @@
+{
+  "fixture": "f5_chained_vulnerabilities",
+  "description": "Transitive closure: four-hop kill chain with a CVE at each step. Tests become closure depth and derivation tree.",
+  "intent_queries": [
+    {"user": "admin", "action": "sudo:execute", "host_group": "bastion", "expected": "sat"},
+    {"user": "dba", "action": "db:login:superuser", "host_group": "dbservers", "service": "postgresql", "expected": "sat"},
+    {"user": "_attacker", "action": "db:login:superuser", "host_group": "dbservers", "service": "postgresql", "expected": "unsat"}
+  ],
+  "cve_queries": [
+    {"user": "_attacker", "action": "db:login:superuser", "host_group": "dbservers", "service": "postgresql", "expected": "sat",
+     "expected_cves": ["CVE-2023-38408", "CVE-2021-41773", "CVE-2021-44228", "CVE-2013-1903"],
+     "chain_hops": 4,
+     "chain": "attacker → bastion:sshd (CVE-2023-38408, OpenSSH 9.1p1) → become _host_bastion → can_reach webservers:httpd (bastion→web rule) → CVE-2021-41773 (Apache 2.4.49) → become _host_webservers → can_reach appservers:8080 (web→app rule) → CVE-2021-44228 (Log4j 2.14.1) → become _host_appservers → can_reach dbservers:postgresql (app→db rule) → CVE-2013-1903 (PostgreSQL 9.2.3) → become _host_dbservers → db:login:superuser"}
+  ]
+}

@@ -1,0 +1,25 @@
+# DeepSeek V4 Pro — resume failed F5/F6/F7 (9 runs)
+# Requires weekly rate limit reset (3,250 req/week)
+
+models:
+  - opencode-go/deepseek-v4-pro
+
+ansible_dirs:
+  - eval_fixtures/f5_chained_vulnerabilities
+  - eval_fixtures/f6_intent_vs_effective
+  - eval_fixtures/f7_negative_control
+
+runs: 3
+
+defaults:
+  interpreter: local
+  max_iterations: 25
+  max_tokens: 64000
+  reasoning: auto
+  retries: 5
+  trace: true
+  phoenix_project: eval-deepseek-v4-pro
+  no_cache: true
+  policy_goal: all
+  max_parallel: 3
+  phase_order: eager

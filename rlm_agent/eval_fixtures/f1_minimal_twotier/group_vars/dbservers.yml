@@ -1,0 +1,6 @@
+---
+postgres_port: 5432
+data_dir: /var/lib/postgresql/data
+db_admin_groups: [sudo]
+db_allow_from:
+  - 10.0.1.0/24    # webservers subnet only

@@ -1,0 +1,16 @@
+{
+  "fixture": "f2_threetier_segmented",
+  "description": "Trust-boundary reasoning: three zones, nginx 1.20.0 RCE + OpenSSH 9.6p1 regreSSHion, two-hop kill chain through zone boundaries",
+  "intent_queries": [
+    {"user": "admin", "action": "sudo:execute", "host_group": "dmz", "expected": "sat"},
+    {"user": "developer", "action": "sudo:execute", "host_group": "dmz", "expected": "unsat"},
+    {"user": "dba", "action": "db:login:superuser", "host_group": "dbservers", "service": "postgresql", "expected": "sat"},
+    {"user": "_attacker", "action": "db:login", "host_group": "dbservers", "service": "postgresql", "expected": "unsat"}
+  ],
+  "cve_queries": [
+    {"user": "_attacker", "action": "db:login", "host_group": "dbservers", "service": "postgresql", "expected": "sat",
+     "expected_cves": ["CVE-2021-23017", "CVE-2024-6387"],
+     "chain_hops": 2,
+     "chain": "attacker → dmz:nginx (CVE-2021-23017) → become _host_dmz → can_reach appservers:8080 → CVE-2024-6387 sshd → become _host_appservers → can_reach dbservers:postgresql"}
+  ]
+}

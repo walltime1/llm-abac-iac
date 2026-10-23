@@ -1,0 +1,33 @@
+# Experiment 4b: F5/F6 deepening for the flip-rate and ceiling claims.
+# +7 runs per model on F5 and F6 only (per-cell n=3 -> n=10).
+# 5 models x 2 fixtures x 7 runs = 70 runs.
+#
+# Wall-clock is dominated by Kimi K2.6 (~41 min/run, 14 runs here) and it
+# may hit provider rate limits — watch for failover, as in round 1.
+# Comparability: same prompt/encoder; keep the on-disk .nvd_cache.
+
+models:
+  - opencode-go/glm-5.1
+  - opencode-go/kimi-k2.6
+  - opencode-go/minimax-m2.7
+  - openrouter/qwen/qwen3.5-27b:alibaba
+  - opencode-go/qwen3.6-plus
+
+ansible_dirs:
+  - eval_fixtures/f5_chained_vulnerabilities
+  - eval_fixtures/f6_intent_vs_effective
+
+runs: 7
+
+defaults:
+  interpreter: local
+  max_iterations: 35
+  max_tokens: 64000
+  reasoning: auto
+  retries: 5
+  trace: true
+  phoenix_project: eval-exp4-f5f6
+  no_cache: true
+  policy_goal: all
+  max_parallel: 4
+  phase_order: eager

@@ -1,0 +1,36 @@
+# Experiment 4a: replication runs for the intent-accuracy contenders.
+# 7 runs per fixture for the two Qwen models, to test the
+# "27B matches/exceeds the larger models on intent accuracy" headline.
+# 2 models x 7 fixtures x 7 runs = 98 runs.
+#
+# Comparability: same prompt/encoder/fixtures as the frozen round; the
+# pre-fix NVD product-matching behaviour comes from the .nvd_cache on disk
+# (do NOT clear it). Record the run date — hosted models drift.
+
+models:
+  - openrouter/qwen/qwen3.5-27b:alibaba
+  - opencode-go/qwen3.6-plus
+
+ansible_dirs:
+  - eval_fixtures/f1_minimal_twotier
+  - eval_fixtures/f2_threetier_segmented
+  - eval_fixtures/f3_privsep_service_accounts
+  - eval_fixtures/f4_patched_vs_vulnerable
+  - eval_fixtures/f5_chained_vulnerabilities
+  - eval_fixtures/f6_intent_vs_effective
+  - eval_fixtures/f7_negative_control
+
+runs: 7
+
+defaults:
+  interpreter: local
+  max_iterations: 35
+  max_tokens: 64000
+  reasoning: auto
+  retries: 5
+  trace: true
+  phoenix_project: eval-exp4-qwen-fullgrid
+  no_cache: true
+  policy_goal: all
+  max_parallel: 5
+  phase_order: eager

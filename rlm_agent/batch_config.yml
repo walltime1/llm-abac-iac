@@ -1,0 +1,22 @@
+# Batch ABAC mining configuration
+# Usage: python batch_run.py --config batch_config.yml
+
+models:
+  - openrouter/qwen/qwen3.6-plus           # Qwen 3.6 Plus — Tier 1
+
+ansible_dirs:
+  - ansible_configs                         # our fixture (8 files)
+  - ansible_examples/lamp_haproxy           # ansible-examples LAMP+HAProxy (44 files)
+
+runs: 3   # 3 runs per model × dir combo for variance measurement
+
+defaults:
+  interpreter: deno
+  max_iterations: 15
+  max_tokens: 16000
+  reasoning: auto
+  retries: 5
+  trace: true
+  no_cache: true        # fresh responses every run for variance data
+  policy_goal: all
+  max_parallel: 3       # parallel API calls

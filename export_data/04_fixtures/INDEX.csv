@@ -1,0 +1,8 @@
+fixture_id,name,description,n_intent_queries,n_cve_queries,expected_admitted_cves,expected_kill_chains,designed_flip,max_chain_hops
+f1,f1_minimal_twotier,"Smoke test: two-tier web+db, Apache 2.4.49 (CVE-2021-41773 RCE), one-hop kill chain",3,1,0,0,False,1
+f2,f2_threetier_segmented,"Trust-boundary reasoning: three zones, nginx 1.20.0 RCE + OpenSSH 9.6p1 regreSSHion, two-hop kill chain through zone boundaries",4,1,0,0,False,2
+f3,f3_privsep_service_accounts,"Over-approximation demonstration: nginx RCE lands as www-data (no sudo, no shell), but _host_<hg> encoding grants maximal privileges. SAT verdicts are upper-bound, not achievable as www-data.",2,1,0,0,False,1
+f4,f4_patched_vs_vulnerable,"Triage precision: CVE-2021-23017 should be admitted only against webservers_legacy (nginx 1.20.0), not webservers_patched (nginx 1.24.0)",1,1,0,0,False,0
+f5,f5_chained_vulnerabilities,Transitive closure: four-hop kill chain with a CVE at each step. Tests become closure depth and derivation tree.,3,1,0,0,True,4
+f6,f6_intent_vs_effective,Headline: intent-only vs CVE-conditioned divergence on the same query. Two-hop kill chain through zone-segmented network.,4,1,0,0,True,2
+f7,f7_negative_control,"Specificity check: fully patched, zero CVEs should be admitted, zero kill chains. Any SAT for _attacker = confabulation.",3,1,0,0,False,0

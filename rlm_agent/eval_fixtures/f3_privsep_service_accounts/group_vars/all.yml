@@ -1,0 +1,21 @@
+---
+org: privsep-corp
+compliance_tier: soc2
+default_log_retention_days: 90
+
+nginx_version: "1.20.0-1~focal"
+ssh_version: "1:9.6p1-3ubuntu1"
+postgres_version: "16.2-1.pgdg22.04+1"
+redis_version: "7.0.11-1"
+
+users:
+  - name: admin
+    uid: 1001
+    groups: [sudo]
+    department: operations
+    clearance: secret
+  - name: developer
+    uid: 1002
+    groups: [developers]
+    department: engineering
+    clearance: confidential

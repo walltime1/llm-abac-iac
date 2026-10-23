@@ -1,0 +1,18 @@
+---
+- name: Configure webservers
+  hosts: webservers
+  become: true
+  roles:
+    - webserver
+
+- name: Configure dbservers
+  hosts: dbservers
+  become: true
+  roles:
+    - database
+
+- name: Harden bastion
+  hosts: admin_bastion
+  become: true
+  roles:
+    - bastion

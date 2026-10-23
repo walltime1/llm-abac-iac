@@ -1,0 +1,5 @@
+---
+app_port: 8080
+allowed_ssh_groups: [sudo, developers]
+firewall_allow_from:
+  - 10.0.1.0/24    # DMZ subnet only

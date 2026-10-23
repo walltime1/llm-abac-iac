@@ -1,0 +1,33 @@
+---
+org: acme-corp
+compliance_tier: pci
+default_log_retention_days: 365
+
+# Pinned software versions — used by role package tasks.
+nginx_version: "1.24.0-2ubuntu1"
+postgres_major_version: "16"
+postgres_version: "16.2-1.pgdg22.04+1"
+ssh_version: "1:9.6p1-3ubuntu1"
+
+# Attribute-bearing user catalogue. Mined into ABAC user attributes.
+users:
+  - name: alice
+    uid: 1001
+    groups: [sudo, developers]
+    department: engineering
+    clearance: secret
+  - name: bob
+    uid: 1002
+    groups: [developers]
+    department: engineering
+    clearance: confidential
+  - name: carol
+    uid: 1003
+    groups: [dba]
+    department: data
+    clearance: secret
+  - name: dave
+    uid: 1004
+    groups: [auditors]
+    department: compliance
+    clearance: secret

@@ -1,0 +1,52 @@
+---
+- name: Install nginx
+  ansible.builtin.apt:
+    name: "nginx={{ nginx_version }}"
+    state: present
+    update_cache: true
+
+- name: Install OpenSSH server
+  ansible.builtin.apt:
+    name: "openssh-server={{ ssh_version }}"
+    state: present
+
+- name: Create www-data service user (no sudo, no shell)
+  ansible.builtin.user:
+    name: www-data
+    uid: 33
+    groups: www-data
+    shell: /usr/sbin/nologin
+    system: true
+
+- name: Ensure nginx runs as www-data
+  ansible.builtin.lineinfile:
+    path: /etc/nginx/nginx.conf
+    regexp: '^user'
+    line: "user www-data;"
+
+- name: Enforce document root ACL (www-data only)
+  ansible.builtin.file:
+    path: /var/www/html
+    owner: www-data
+    group: www-data
+    mode: "0750"
+    recurse: true
+
+- name: Firewall — allow HTTPS from internet
+  ansible.posix.firewalld:
+    source: "{{ item }}"
+    port: "{{ http_port }}/tcp"
+    permanent: true
+    state: enabled
+  loop: "{{ firewall_allow_from }}"
+
+- name: Restrict SSH to sudo group
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^AllowGroups'
+    line: "AllowGroups {{ allowed_ssh_groups | join(' ') }}"
+
+- name: Ensure www-data has NO sudo access
+  ansible.builtin.file:
+    path: /etc/sudoers.d/www-data
+    state: absent

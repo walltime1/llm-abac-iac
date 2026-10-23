@@ -1,0 +1,233 @@
+[
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f1_minimal_twotier_20260424_190815_r1.abac.md",
+    "trajectory_steps": 12,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f1_minimal_twotier_20260424_190815_r1.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "1188s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f1_minimal_twotier_20260424_190815_r3.abac.md",
+    "trajectory_steps": 8,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f1_minimal_twotier_20260424_190815_r3.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "1386s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f1_minimal_twotier_20260424_190815_r2.abac.md",
+    "trajectory_steps": 9,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f1_minimal_twotier_20260424_190815_r2.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "1944s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f2_threetier_segment_20260424_193121_r3.abac.md",
+    "trajectory_steps": 12,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f2_threetier_segment_20260424_193121_r3.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "1833s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f2_threetier_segment_20260424_190815_r1.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f2_threetier_segment_20260424_190815_r1.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "3609s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f3_privsep_service_a_20260424_194040_r1.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f3_privsep_service_a_20260424_194040_r1.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "2284s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f2_threetier_segment_20260424_192803_r2.abac.md",
+    "trajectory_steps": 17,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f2_threetier_segment_20260424_192803_r2.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "3299s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f4_patched_vs_vulner_20260424_201844_r1.abac.md",
+    "trajectory_steps": 10,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f4_patched_vs_vulner_20260424_201844_r1.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "1651s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f4_patched_vs_vulner_20260424_202302_r2.abac.md",
+    "trajectory_steps": 11,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f4_patched_vs_vulner_20260424_202302_r2.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "2008s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f3_privsep_service_a_20260424_200825_r3.abac.md",
+    "trajectory_steps": 17,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f3_privsep_service_a_20260424_200825_r3.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "3025s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f4_patched_vs_vulner_20260424_204614_r3.abac.md",
+    "trajectory_steps": 11,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f4_patched_vs_vulner_20260424_204614_r3.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "2254s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f5_chained_vulnerabi_20260424_205630_r1.abac.md",
+    "trajectory_steps": 16,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f5_chained_vulnerabi_20260424_205630_r1.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "1856s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f3_privsep_service_a_20260424_200154_r2.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f3_privsep_service_a_20260424_200154_r2.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "6093s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f6_intent_vs_effecti_20260424_212726_r1.abac.md",
+    "trajectory_steps": 15,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f6_intent_vs_effecti_20260424_212726_r1.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "1105s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f5_chained_vulnerabi_20260424_205850_r2.abac.md",
+    "trajectory_steps": 12,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f5_chained_vulnerabi_20260424_205850_r2.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "3557s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f5_chained_vulnerabi_20260424_212348_r3.abac.md",
+    "trajectory_steps": 8,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f5_chained_vulnerabi_20260424_212348_r3.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "2319s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f6_intent_vs_effecti_20260424_214551_r3.abac.md",
+    "trajectory_steps": 15,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f6_intent_vs_effecti_20260424_214551_r3.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "1199s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f6_intent_vs_effecti_20260424_214326_r2.abac.md",
+    "trajectory_steps": 14,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f6_intent_vs_effecti_20260424_214326_r2.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "1563s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f7_negative_control_20260424_220227_r2.abac.md",
+    "trajectory_steps": 12,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f7_negative_control_20260424_220227_r2.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "1660s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f7_negative_control_20260424_220549_r3.abac.md",
+    "trajectory_steps": 9,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f7_negative_control_20260424_220549_r3.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "1995s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_kimi-k2.6_f7_negative_control_20260424_215807_r1.abac.md",
+    "trajectory_steps": 17,
+    "output_file": "reports/batch_opencode-go_kimi-k2.6_f7_negative_control_20260424_215807_r1.abac.md",
+    "model": "opencode-go/kimi-k2.6",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "3823s"
+  }
+]

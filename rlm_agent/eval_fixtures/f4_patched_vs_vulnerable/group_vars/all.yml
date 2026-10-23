@@ -1,0 +1,24 @@
+---
+org: patchcorp
+compliance_tier: soc2
+default_log_retention_days: 90
+
+# Shared packages
+ssh_version: "1:9.6p1-3ubuntu1"
+postgres_version: "16.2-1.pgdg22.04+1"
+
+# Divergent nginx versions — patched vs legacy
+nginx_version_patched: "1.24.0-2ubuntu1"
+nginx_version_legacy: "1.20.0-1~focal"
+
+users:
+  - name: admin
+    uid: 1001
+    groups: [sudo]
+    department: operations
+    clearance: secret
+  - name: appuser
+    uid: 1002
+    groups: [developers]
+    department: engineering
+    clearance: confidential

@@ -1,0 +1,28 @@
+---
+- name: Install OpenSSH server
+  ansible.builtin.apt:
+    name: "openssh-server={{ ssh_version }}"
+    state: present
+    update_cache: true
+
+- name: Restrict bastion logins to auditors and sudo
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^AllowGroups'
+    line: "AllowGroups sudo auditors dba"
+
+- name: Log every shell session
+  ansible.builtin.copy:
+    dest: /etc/profile.d/audit.sh
+    content: |
+      exec > >(tee -a /var/log/bastion/$(whoami)-$(date +%Y%m%d).log) 2>&1
+    mode: "0644"
+
+- name: Only secret-clearance may sudo
+  community.general.sudoers:
+    name: "bastion-{{ item.name }}"
+    user: "{{ item.name }}"
+    commands: ALL
+    nopassword: false
+  loop: "{{ users }}"
+  when: "'sudo' in item.groups and item.clearance == 'secret'"

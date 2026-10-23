@@ -1,0 +1,792 @@
+{
+  "attributes": {
+    "subjects": {
+      "users": [
+        {
+          "name": "alice",
+          "uid": 1001,
+          "groups": [
+            "sudo",
+            "developers"
+          ],
+          "department": "engineering",
+          "clearance": "secret",
+          "source": "group_vars/all.yml"
+        },
+        {
+          "name": "bob",
+          "uid": 1002,
+          "groups": [
+            "developers"
+          ],
+          "department": "engineering",
+          "clearance": "confidential",
+          "source": "group_vars/all.yml"
+        },
+        {
+          "name": "carol",
+          "uid": 1003,
+          "groups": [
+            "dba"
+          ],
+          "department": "data",
+          "clearance": "secret",
+          "source": "group_vars/all.yml"
+        },
+        {
+          "name": "dave",
+          "uid": 1004,
+          "groups": [
+            "auditors"
+          ],
+          "department": "compliance",
+          "clearance": "secret",
+          "source": "group_vars/all.yml"
+        }
+      ],
+      "groups": [
+        "sudo",
+        "developers",
+        "dba",
+        "auditors",
+        "www-data"
+      ],
+      "clearance_levels": [
+        "confidential",
+        "secret"
+      ],
+      "departments": [
+        "compliance",
+        "data",
+        "engineering"
+      ]
+    },
+    "resources": {
+      "hosts": [
+        {
+          "hostname": "web01.corp.local",
+          "ip": "10.0.1.11",
+          "role": "frontend",
+          "zone": "dmz",
+          "inventory_group": "webservers"
+        },
+        {
+          "hostname": "web02.corp.local",
+          "ip": "10.0.1.12",
+          "role": "frontend",
+          "zone": "dmz",
+          "inventory_group": "webservers"
+        },
+        {
+          "hostname": "db01.corp.local",
+          "ip": "10.0.2.21",
+          "role": "primary",
+          "zone": "internal",
+          "inventory_group": "dbservers"
+        },
+        {
+          "hostname": "db02.corp.local",
+          "ip": "10.0.2.22",
+          "role": "replica",
+          "zone": "internal",
+          "inventory_group": "dbservers"
+        },
+        {
+          "hostname": "bastion.corp.local",
+          "ip": "10.0.0.5",
+          "role": "bastion",
+          "zone": "mgmt",
+          "inventory_group": "admin_bastion"
+        }
+      ],
+      "services": [
+        {
+          "name": "sshd",
+          "port": 22,
+          "protocol": "tcp",
+          "host_group": "all"
+        },
+        {
+          "name": "nginx",
+          "port": 443,
+          "protocol": "tcp",
+          "host_group": "webservers"
+        },
+        {
+          "name": "postgresql",
+          "port": 5432,
+          "protocol": "tcp",
+          "host_group": "dbservers"
+        }
+      ],
+      "paths": [
+        {
+          "path": "/var/lib/postgresql/data",
+          "owner": "postgres",
+          "group": "postgres",
+          "mode": "0700"
+        },
+        {
+          "path": "/var/www/app",
+          "owner": "appuser",
+          "group": "www-data",
+          "mode": "0750"
+        }
+      ]
+    },
+    "environment": {
+      "org": "acme-corp",
+      "environment": "production",
+      "compliance_tier": "pci"
+    }
+  },
+  "rules": [
+    {
+      "id": "rule-001",
+      "subject_condition": {
+        "groups": {
+          "any_of": [
+            "sudo",
+            "auditors",
+            "dba"
+          ]
+        }
+      },
+      "resource_condition": {
+        "host_group": {
+          "equals": "admin_bastion"
+        },
+        "service": {
+          "equals": "ssh"
+        },
+        "port": {
+          "equals": 22
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "ssh:login",
+      "effect": "permit",
+      "source": {
+        "file": "roles/bastion/tasks/main.yml",
+        "task": "Restrict bastion logins to auditors and sudo",
+        "lines": "2-6"
+      },
+      "obligations": [
+        {
+          "type": "session_log",
+          "path": "/var/log/bastion/{user}-{date}.log",
+          "retention_days": 365,
+          "source": {
+            "file": "roles/bastion/tasks/main.yml",
+            "task": "Log every shell session",
+            "lines": "8-13"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rule-002",
+      "subject_condition": {
+        "groups": {
+          "any_of": [
+            "sudo",
+            "developers"
+          ]
+        }
+      },
+      "resource_condition": {
+        "host_group": {
+          "equals": "webservers"
+        },
+        "service": {
+          "equals": "ssh"
+        },
+        "port": {
+          "equals": 22
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "ssh:login",
+      "effect": "permit",
+      "source": {
+        "file": "roles/webserver/tasks/main.yml",
+        "task": "Restrict SSH to approved groups",
+        "lines": "46-50"
+      }
+    },
+    {
+      "id": "rule-003",
+      "subject_condition": {
+        "groups": {
+          "any_of": [
+            "sudo"
+          ]
+        },
+        "clearance": {
+          "equals": "secret"
+        }
+      },
+      "resource_condition": {
+        "host_group": {
+          "equals": "admin_bastion"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "sudo:execute",
+      "effect": "permit",
+      "source": {
+        "file": "roles/bastion/tasks/main.yml",
+        "task": "Only secret-clearance may sudo",
+        "lines": "15-22"
+      },
+      "nopassword": false
+    },
+    {
+      "id": "rule-004",
+      "subject_condition": {
+        "groups": {
+          "any_of": [
+            "sudo"
+          ]
+        },
+        "clearance": {
+          "in": [
+            "secret",
+            "confidential"
+          ]
+        }
+      },
+      "resource_condition": {
+        "host_group": {
+          "equals": "webservers"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "sudo:execute",
+      "effect": "permit",
+      "source": {
+        "file": "roles/webserver/tasks/main.yml",
+        "task": "Grant sudoers for deployment",
+        "lines": "27-36"
+      },
+      "nopassword": true
+    },
+    {
+      "id": "rule-005",
+      "subject_condition": {
+        "groups": {
+          "any_of": [
+            "dba"
+          ]
+        }
+      },
+      "resource_condition": {
+        "database": {
+          "equals": "appdb"
+        },
+        "service": {
+          "equals": "postgres"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "db:login:superuser",
+      "effect": "permit",
+      "source": {
+        "file": "roles/database/tasks/main.yml",
+        "task": "Create DB role per user",
+        "lines": "10-16"
+      }
+    },
+    {
+      "id": "rule-006",
+      "subject_condition": {
+        "groups": {
+          "any_of": [
+            "developers"
+          ]
+        }
+      },
+      "resource_condition": {
+        "database": {
+          "equals": "appdb"
+        },
+        "service": {
+          "equals": "postgres"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "db:login",
+      "effect": "permit",
+      "source": {
+        "file": "roles/database/tasks/main.yml",
+        "task": "Create DB role per user",
+        "lines": "10-16"
+      }
+    },
+    {
+      "id": "rule-007",
+      "subject_condition": {
+        "groups": {
+          "any_of": [
+            "auditors"
+          ]
+        },
+        "clearance": {
+          "equals": "secret"
+        }
+      },
+      "resource_condition": {
+        "database": {
+          "equals": "appdb"
+        },
+        "schema": {
+          "equals": "app"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "db:schema:usage",
+      "effect": "permit",
+      "source": {
+        "file": "roles/database/tasks/main.yml",
+        "task": "Grant read-only on app schema to auditors",
+        "lines": "18-26"
+      }
+    },
+    {
+      "id": "rule-008",
+      "subject_condition": {
+        "groups": {
+          "any_of": [
+            "developers"
+          ]
+        }
+      },
+      "resource_condition": {
+        "database": {
+          "equals": "appdb"
+        },
+        "schema": {
+          "equals": "app"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "db:table:read_write",
+      "effect": "permit",
+      "source": {
+        "file": "roles/database/tasks/main.yml",
+        "task": "Grant app read/write to developers",
+        "lines": "28-37"
+      }
+    },
+    {
+      "id": "rule-009",
+      "subject_condition": {
+        "source_ip": {
+          "in": [
+            "10.0.1.11",
+            "10.0.1.12"
+          ]
+        }
+      },
+      "resource_condition": {
+        "database": {
+          "equals": "appdb"
+        },
+        "service": {
+          "equals": "postgres"
+        },
+        "port": {
+          "equals": 5432
+        },
+        "host_group": {
+          "equals": "dbservers"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "network:connect",
+      "effect": "permit",
+      "source": {
+        "file": "roles/database/tasks/main.yml",
+        "task": "Allow postgres only from webservers",
+        "lines": "39-45"
+      }
+    },
+    {
+      "id": "rule-010",
+      "subject_condition": {
+        "applies_to": {
+          "equals": "all"
+        }
+      },
+      "resource_condition": {
+        "database": {
+          "equals": "appdb"
+        },
+        "service": {
+          "equals": "postgres"
+        },
+        "port": {
+          "equals": 5432
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "network:connect",
+      "effect": "deny",
+      "source": {
+        "file": "roles/database/tasks/main.yml",
+        "task": "Allow postgres only from webservers (implicit deny-default)",
+        "lines": "39-45"
+      }
+    },
+    {
+      "id": "rule-011",
+      "subject_condition": {
+        "source_network": {
+          "in": [
+            "10.0.0.0/24",
+            "10.0.1.0/24"
+          ]
+        }
+      },
+      "resource_condition": {
+        "host_group": {
+          "equals": "webservers"
+        },
+        "service": {
+          "equals": "https"
+        },
+        "port": {
+          "equals": 443
+        },
+        "protocol": {
+          "equals": "tcp"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "network:connect",
+      "effect": "permit",
+      "source": {
+        "file": "roles/webserver/tasks/main.yml",
+        "task": "Firewall — allow HTTPS from listed CIDRs",
+        "lines": "38-44"
+      }
+    },
+    {
+      "id": "rule-012",
+      "subject_condition": {
+        "user": {
+          "equals": "postgres"
+        }
+      },
+      "resource_condition": {
+        "path": {
+          "equals": "/var/lib/postgresql/data"
+        },
+        "owner": {
+          "equals": "postgres"
+        },
+        "group": {
+          "equals": "postgres"
+        },
+        "mode": {
+          "equals": "0700"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "filesystem:write",
+      "effect": "permit",
+      "source": {
+        "file": "roles/database/tasks/main.yml",
+        "task": "Ensure postgres data dir",
+        "lines": "2-8"
+      }
+    },
+    {
+      "id": "rule-013",
+      "subject_condition": {
+        "user": {
+          "in": [
+            "alice",
+            "bob",
+            "carol",
+            "dave",
+            "appuser"
+          ]
+        }
+      },
+      "resource_condition": {
+        "path": {
+          "equals": "/var/lib/postgresql/data"
+        },
+        "owner": {
+          "equals": "postgres"
+        },
+        "group": {
+          "equals": "postgres"
+        },
+        "mode": {
+          "equals": "0700"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "filesystem:read",
+      "effect": "deny",
+      "source": {
+        "file": "roles/database/tasks/main.yml",
+        "task": "Ensure postgres data dir (mode 0700 implies non-owner deny)",
+        "lines": "2-8"
+      }
+    },
+    {
+      "id": "rule-014",
+      "subject_condition": {
+        "user": {
+          "equals": "appuser"
+        }
+      },
+      "resource_condition": {
+        "path": {
+          "equals": "/var/www/app"
+        },
+        "owner": {
+          "equals": "appuser"
+        },
+        "group": {
+          "equals": "www-data"
+        },
+        "mode": {
+          "equals": "0750"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "filesystem:write",
+      "effect": "permit",
+      "source": {
+        "file": "roles/webserver/tasks/main.yml",
+        "task": "Enforce document root ACL",
+        "lines": "19-25"
+      }
+    },
+    {
+      "id": "rule-015",
+      "subject_condition": {
+        "groups": {
+          "any_of": [
+            "www-data"
+          ]
+        }
+      },
+      "resource_condition": {
+        "path": {
+          "equals": "/var/www/app"
+        },
+        "owner": {
+          "equals": "appuser"
+        },
+        "group": {
+          "equals": "www-data"
+        },
+        "mode": {
+          "equals": "0750"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "filesystem:read",
+      "effect": "permit",
+      "source": {
+        "file": "roles/webserver/tasks/main.yml",
+        "task": "Enforce document root ACL",
+        "lines": "19-25"
+      }
+    },
+    {
+      "id": "rule-016",
+      "subject_condition": {
+        "groups": {
+          "any_of": [
+            "developers",
+            "sudo"
+          ]
+        }
+      },
+      "resource_condition": {
+        "host_group": {
+          "equals": "webservers"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "user:create",
+      "effect": "permit",
+      "source": {
+        "file": "roles/webserver/tasks/main.yml",
+        "task": "Provision shell users",
+        "lines": "10-17"
+      }
+    },
+    {
+      "id": "rule-017",
+      "subject_condition": {
+        "user": {
+          "equals": "appuser"
+        }
+      },
+      "resource_condition": {
+        "host_group": {
+          "equals": "webservers"
+        }
+      },
+      "environment_condition": {
+        "environment": {
+          "equals": "production"
+        },
+        "compliance_tier": {
+          "equals": "pci"
+        }
+      },
+      "action": "user:create",
+      "effect": "permit",
+      "source": {
+        "file": "roles/webserver/tasks/main.yml",
+        "task": "Create app user",
+        "lines": "2-8"
+      }
+    },
+    {
+      "id": "rule-018",
+      "subject_condition": {
+        "applies_to": {
+          "equals": "all"
+        }
+      },
+      "resource_condition": {
+        "applies_to": {
+          "equals": "all"
+        }
+      },
+      "environment_condition": {
+        "applies_to": {
+          "equals": "all"
+        }
+      },
+      "action": "*",
+      "effect": "deny",
+      "source": {
+        "file": "synthetic",
+        "task": "Default-deny catch-all",
+        "lines": "N/A"
+      }
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+[
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f1_minimal_twotier_20260424_155710_r2.abac.md",
+    "trajectory_steps": 14,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f1_minimal_twotier_20260424_155710_r2.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "382s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f2_threetier_segment_20260424_155710_r2.abac.md",
+    "trajectory_steps": 11,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f2_threetier_segment_20260424_155710_r2.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "447s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f1_minimal_twotier_20260424_155710_r3.abac.md",
+    "trajectory_steps": 9,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f1_minimal_twotier_20260424_155710_r3.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "453s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f2_threetier_segment_20260424_155710_r3.abac.md",
+    "trajectory_steps": 17,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f2_threetier_segment_20260424_155710_r3.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "460s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f1_minimal_twotier_20260424_155710_r1.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f1_minimal_twotier_20260424_155710_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f1_minimal_twotier",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "512s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f2_threetier_segment_20260424_155710_r1.abac.md",
+    "trajectory_steps": 11,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f2_threetier_segment_20260424_155710_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f2_threetier_segmented",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "513s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f3_privsep_service_a_20260424_155710_r1.abac.md",
+    "trajectory_steps": 12,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f3_privsep_service_a_20260424_155710_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "582s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f3_privsep_service_a_20260424_160436_r3.abac.md",
+    "trajectory_steps": 10,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f3_privsep_service_a_20260424_160436_r3.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "351s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f5_chained_vulnerabi_20260424_160543_r1.abac.md",
+    "trajectory_steps": 8,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f5_chained_vulnerabi_20260424_160543_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "310s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f4_patched_vs_vulner_20260424_160443_r1.abac.md",
+    "trajectory_steps": 9,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f4_patched_vs_vulner_20260424_160443_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "400s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f4_patched_vs_vulner_20260424_160450_r2.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f4_patched_vs_vulner_20260424_160450_r2.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "461s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f4_patched_vs_vulner_20260424_160542_r3.abac.md",
+    "trajectory_steps": 15,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f4_patched_vs_vulner_20260424_160542_r3.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f4_patched_vs_vulnerable",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "505s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f3_privsep_service_a_20260424_160332_r2.abac.md",
+    "trajectory_steps": 12,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f3_privsep_service_a_20260424_160332_r2.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f3_privsep_service_accounts",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "785s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f5_chained_vulnerabi_20260424_160652_r2.abac.md",
+    "trajectory_steps": 12,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f5_chained_vulnerabi_20260424_160652_r2.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "619s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f6_intent_vs_effecti_20260424_161230_r3.abac.md",
+    "trajectory_steps": 8,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f6_intent_vs_effecti_20260424_161230_r3.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "294s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f6_intent_vs_effecti_20260424_161123_r2.abac.md",
+    "trajectory_steps": 7,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f6_intent_vs_effecti_20260424_161123_r2.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "407s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f7_negative_control_20260424_161407_r1.abac.md",
+    "trajectory_steps": 9,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f7_negative_control_20260424_161407_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "323s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f6_intent_vs_effecti_20260424_161053_r1.abac.md",
+    "trajectory_steps": 12,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f6_intent_vs_effecti_20260424_161053_r1.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f6_intent_vs_effective",
+    "run_index": 1,
+    "status": "ok",
+    "elapsed": "580s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f5_chained_vulnerabi_20260424_161027_r3.abac.md",
+    "trajectory_steps": 13,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f5_chained_vulnerabi_20260424_161027_r3.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f5_chained_vulnerabilities",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "677s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f7_negative_control_20260424_161637_r2.abac.md",
+    "trajectory_steps": 9,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f7_negative_control_20260424_161637_r2.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 2,
+    "status": "ok",
+    "elapsed": "368s"
+  },
+  {
+    "policy_goal": "all",
+    "policy_file": "reports/batch_opencode-go_qwen3.6-plus_f7_negative_control_20260424_161711_r3.abac.md",
+    "trajectory_steps": 10,
+    "output_file": "reports/batch_opencode-go_qwen3.6-plus_f7_negative_control_20260424_161711_r3.abac.md",
+    "model": "opencode-go/qwen3.6-plus",
+    "ansible_dir": "eval_fixtures/f7_negative_control",
+    "run_index": 3,
+    "status": "ok",
+    "elapsed": "715s"
+  }
+]

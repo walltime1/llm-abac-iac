@@ -1,0 +1,7 @@
+---
+http_port: 443
+document_root: /var/www/app
+allowed_ssh_groups: [sudo, developers]
+firewall_allow_from:
+  - 10.0.0.0/24   # bastion subnet
+  - 10.0.1.0/24   # web subnet (inter-node)

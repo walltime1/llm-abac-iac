@@ -1,0 +1,27 @@
+{
+  "fixture": "f6_intent_vs_effective",
+  "description": "Headline: intent-only vs CVE-conditioned divergence on the same query. Two-hop kill chain through zone-segmented network.",
+  "intent_queries": [
+    {"user": "admin", "action": "sudo:execute", "host_group": "dmz", "expected": "sat",
+     "reason": "admin has sudo group + secret clearance"},
+    {"user": "developer", "action": "sudo:execute", "host_group": "dmz", "expected": "unsat",
+     "reason": "developer lacks sudo group"},
+    {"user": "dba", "action": "db:login:superuser", "host_group": "dbservers", "service": "postgresql", "expected": "sat",
+     "reason": "dba has dba group → SUPERUSER role"},
+    {"user": "_attacker", "action": "db:login", "host_group": "dbservers", "service": "postgresql", "expected": "unsat",
+     "reason": "no external path to DB — three zone boundaries block direct access"}
+  ],
+  "cve_queries": [
+    {"user": "_attacker", "action": "db:login", "host_group": "dbservers", "service": "postgresql", "expected": "sat",
+     "reason": "CVE-2021-23017 on nginx (DMZ) + CVE-2023-38408 on sshd (appservers) → two-hop chain to DB",
+     "expected_cves": ["CVE-2021-23017", "CVE-2023-38408"],
+     "chain_hops": 2,
+     "chain": "attacker → can_reach dmz:nginx (internet-exposed :443) → CVE-2021-23017 RCE → become _host_dmz → can_reach appservers:8080 (DMZ→app rule) → CVE-2023-38408 sshd RCE → become _host_appservers → can_reach dbservers:postgresql (app→db rule) → db:login"}
+  ],
+  "divergence_table": {
+    "query": "_attacker + db:login on dbservers",
+    "intent_mode": "UNSAT",
+    "cve_conditioned_mode": "SAT",
+    "flip_reason": "Two CVEs create become edges through zone boundaries that iptables correctly blocks at the network layer but that are bypassed by host compromise"
+  }
+}
